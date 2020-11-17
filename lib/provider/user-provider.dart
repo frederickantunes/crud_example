@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:crud_example/data/dummy_users.dart';
 import 'package:crud_example/models/user.dart';
@@ -7,9 +6,8 @@ import 'package:http/http.dart' as http;
 
 class Users with ChangeNotifier {
   static const _baseUrl = 'https://crud-example-a36b4.firebaseio.com/';
+ final Map<String, User> _items = {...DUMMY_USERS};
 
-  Map userMap = jsonDecode("$_baseUrl/users.json");
-  var _items = User.fromJson(userMap);
 
   List<User> get all {
     return [..._items.values];
